@@ -13,6 +13,7 @@ BINLIST := $(SRCDIR)/mov \
            $(SRCDIR)/pop-3 \
            $(SRCDIR)/adc \
            $(SRCDIR)/adc-2 \
+           $(SRCDIR)/adc-3 \
            $(SRCDIR)/ldr-execve
 
 all: $(BINLIST)
@@ -61,6 +62,10 @@ $(SRCDIR)/adc-2: $(SRCDIR)/adc-2.s
 	$(AS) -o $@.o $<
 	$(LD) -o $@ $@.o
 
+$(SRCDIR)/adc-3: $(SRCDIR)/adc-3.s
+	$(AS) -o $@.o $<
+	$(LD) -o $@ $@.o
+
 $(SRCDIR)/ldr-execve: $(SRCDIR)/ldr-execve.s
 	$(AS) -o $@.o $<
 	$(LD) -o $@ $@.o
@@ -77,4 +82,5 @@ clean:
                   $(SRCDIR)/pop-3 \
                   $(SRCDIR)/adc \
                   $(SRCDIR)/adc-2 \
+                  $(SRCDIR)/adc-3 \
                   $(SRCDIR)/ldr-execve
