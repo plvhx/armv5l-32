@@ -4,6 +4,7 @@ LD := arm-linux-gnueabihf-ld
 SRCDIR  := .
 BINLIST := $(SRCDIR)/mov \
            $(SRCDIR)/add \
+           $(SRCDIR)/add-2 \
            $(SRCDIR)/sub \
            $(SRCDIR)/push \
            $(SRCDIR)/push-2 \
@@ -26,6 +27,10 @@ $(SRCDIR)/mov: $(SRCDIR)/mov.s
 	$(LD) -o $@ $@.o
 
 $(SRCDIR)/add: $(SRCDIR)/add.s
+	$(AS) -o $@.o $<
+	$(LD) -o $@ $@.o
+
+$(SRCDIR)/add-2: $(SRCDIR)/add-2.s
 	$(AS) -o $@.o $<
 	$(LD) -o $@ $@.o
 
@@ -88,6 +93,7 @@ $(SRCDIR)/ldr-execve: $(SRCDIR)/ldr-execve.s
 clean:
 	rm -f *.o $(SRCDIR)/mov \
                   $(SRCDIR)/add \
+                  $(SRCDIR)/add-2 \
                   $(SRCDIR)/sub \
                   $(SRCDIR)/push \
                   $(SRCDIR)/push-2 \
