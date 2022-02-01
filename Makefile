@@ -30,6 +30,7 @@ BINLIST := $(SRCDIR)/mov \
            $(SRCDIR)/b \
            $(SRCDIR)/b-1 \
            $(SRCDIR)/bic \
+           $(SRCDIR)/bic-1 \
            $(SRCDIR)/sub \
            $(SRCDIR)/push \
            $(SRCDIR)/push-2 \
@@ -159,6 +160,10 @@ $(SRCDIR)/bic: $(SRCDIR)/bic.s
 	$(AS) -o $@.o $<
 	$(LD) -o $@ $@.o
 
+$(SRCDIR)/bic-1: $(SRCDIR)/bic-1.s
+	$(AS) -o $@.o $<
+	$(LD) -o $@ $@.o
+
 $(SRCDIR)/sub: $(SRCDIR)/sub.s
 	$(AS) -o $@.o $<
 	$(LD) -o $@ $@.o
@@ -244,6 +249,7 @@ clean:
                   $(SRCDIR)/b \
                   $(SRCDIR)/b-1 \
                   $(SRCDIR)/bic \
+                  $(SRCDIR)/bic-1 \
                   $(SRCDIR)/sub \
                   $(SRCDIR)/push \
                   $(SRCDIR)/push-2 \
